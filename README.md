@@ -1,66 +1,90 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Zip Document Exporter
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web sederhana berbasis Laravel untuk mendemonstrasikan pembuatan beberapa file PDF secara dinamis dari data, lalu mengunduhnya sebagai satu file ZIP. Proyek ini sangat cocok sebagai dasar fitur pelaporan atau pembuatan dokumen massal dalam aplikasi yang lebih besar.
 
-## About Laravel
+![Screenshot Halaman Utama](screenshots/halaman-utama.png)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Pembuatan PDF Dinamis:** Mengonversi data (dari array/database) menjadi file PDF terstruktur.
+- **Unduhan Massal (Bulk Download):** Mengemas banyak file PDF ke dalam satu arsip ZIP untuk mengatasi batasan browser.
+- **Antarmuka Interaktif:** UI bersih dengan fungsionalitas JavaScript untuk seleksi dan filter tanpa reload halaman.
+- **Arsitektur Laravel:** Kode terstruktur menggunakan pola Model-View-Controller (MVC).
+- **Pembersihan Otomatis:** File sementara dihapus setelah proses unduhan selesai untuk menjaga kebersihan server.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Teknologi yang Digunakan
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Backend:** PHP 8.1+, Laravel 10.x
+- **Frontend:** HTML, Tailwind CSS, JavaScript (Vanilla JS)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Dependensi Utama:**
+- `barryvdh/laravel-dompdf`: Wrapper Laravel untuk Dompdf.
+- `ZipArchive`: Ekstensi PHP bawaan.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## ⚙️ Instalasi & Konfigurasi
 
-### Premium Partners
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lingkungan lokal Anda:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+1. **Clone repository:**
+   ```bash
+   git clone https://github.com/NAMA_USER_ANDA/laravel-zip-document-exporter.git
+   ```
 
-## Contributing
+2. **Masuk ke direktori proyek:**
+   ```bash
+   cd laravel-zip-document-exporter
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+3. **Install dependensi Composer:**
+   ```bash
+   composer install
+   ```
 
-## Code of Conduct
+4. **Salin file environment:**
+   ```bash
+   cp .env.example .env
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+5. **Generate kunci aplikasi Laravel:**
+   ```bash
+   php artisan key:generate
+   ```
 
-## Security Vulnerabilities
+6. **Jalankan server pengembangan:**
+   ```bash
+   php artisan serve
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Aplikasi akan berjalan di [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🕹️ Cara Penggunaan
+
+1. Buka browser dan kunjungi: [http://127.0.0.1:8000](http://127.0.0.1:8000)  
+   (Halaman utama akan langsung menampilkan daftar dokumen.)
+
+2. Pilih satu atau beberapa dokumen menggunakan checkbox.  
+   Anda juga dapat menggunakan fitur "Pilih Semua" atau filter berdasarkan tipe dokumen.
+
+3. Klik tombol **"Unduh Dokumen Terpilih (.zip)"**.
+
+4. File ZIP berisi semua PDF yang Anda pilih akan terunduh secara otomatis.
+
+---
+
+## 🤝 Kontribusi
+
+Kontribusi sangat terbuka! Jika Anda memiliki ide perbaikan atau menemukan bug, silakan buat issue atau kirimkan pull request.
+
+---
+
+## 📜 Lisensi
+
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
